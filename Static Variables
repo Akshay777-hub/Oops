@@ -1,0 +1,39 @@
+public class Internet {
+    public static void main(String args[]) {
+        Internetusers user1 = new Internetusers("Alice");
+        Internetusers user2 = new Internetusers("Bob");
+        Internetusers user3 = new Internetusers("Charlie");
+        user1.compute(true);
+        user2.compute(false);
+        user3.compute(true);
+
+        Internetusers.show();
+    }
+}
+class Internetusers {
+    static int count = 0;
+    static int happy_customers = 0;
+    final static int MAXTIME = 2;
+    String name;
+
+    static void browse() {
+        System.out.println("Let's start browsing");
+    }
+
+    public Internetusers(String loginname) {
+        name = loginname;
+        count++;
+    }
+
+    static void show() {
+        System.out.println("No of users: " + count);
+        System.out.println("No of happy customers: " + happy_customers);
+    }
+
+    public void compute(boolean ishappy) {
+        if (ishappy) {
+            happy_customers++;
+            System.out.println(name + " is a happy customer");
+        }
+    }
+}
